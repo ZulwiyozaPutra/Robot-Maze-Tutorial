@@ -44,7 +44,7 @@ class ControlCenter {
                     }
                 case isTwoWayPath:
                     if robotIsBlocked {
-                        randomlyRotateRightOrLeft(myRobot)
+                        turnTowardClearPath(myRobot, wallInfo: checkWalls(myRobot))
                         print("this is two way path and robot is blocked")
                     } else if !robotIsBlocked {
                         myRobot.move()

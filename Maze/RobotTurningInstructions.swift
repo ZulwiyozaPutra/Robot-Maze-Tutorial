@@ -53,7 +53,7 @@ extension ControlCenter {
         } else if robot.direction == .down && wallInfo.left {
             robot.rotateRight()
         } else {
-            robot.rotateLeft()
+            randomlyRotateRightOrLeft(robot)
         }
     }
 }
