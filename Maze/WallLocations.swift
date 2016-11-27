@@ -20,9 +20,26 @@ extension ControlCenter {
         print("cell to left of robot?: \(cell.left)")
         print("cell to right of robot?: \(cell.right)")
         
-        // You may want to paste your Part 1 implementation of isFacingWall() here
+        switch direction {
+        case .up:
+            if cell.top {
+                isWall = true
+            }
+        case .down:
+            if cell.bottom {
+                isWall = true
+            }
+        case .left:
+            if cell.left {
+                isWall = true
+            }
+        case .right:
+            if cell.right {
+                isWall = true
+            }
+        }
         
-        return false
+        return isWall
     }
     
     func checkWalls(_ robot:ComplexRobotObject) -> (up: Bool, right: Bool, down: Bool, left: Bool, numberOfWalls: Int) {
@@ -41,7 +58,22 @@ extension ControlCenter {
             numberOfWalls += 1
         }
         
-        // You may want to paste your Part 2 implementation of checkWalls() here
-        return (false, false, false, false, 0)
+        //Check if there is a wall at the bottom of the current cell
+        let isWallBottom = cell.bottom
+        if isWallBottom {
+            numberOfWalls += 1
+        }
+        
+        // TODO: Check if there is a wall to the left of the current cell
+        let isWallLeft = cell.left
+        if isWallLeft {
+            numberOfWalls += 1
+        }
+        
+        // Test the checkWalls function.
+        print("top is \(isWallUp), right is \(isWallRight), bottom is \(isWallBottom), left is \(isWallLeft), the number of walls is \(numberOfWalls)")
+        
+        // Return a tuple representing the bools for top, right, down & left, and the number of walls
+        return (isWallUp, isWallRight, isWallBottom, isWallLeft, numberOfWalls)
     }
 }
