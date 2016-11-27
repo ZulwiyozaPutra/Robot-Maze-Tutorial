@@ -39,7 +39,7 @@ class ControlCenter {
                         randomlyRotateRightOrLeft(myRobot)
                         print("this is three way junction and robot is blocked")
                     } else if !robotIsBlocked {
-                        continueStraightOrRotate(<#T##robot: ComplexRobotObject##ComplexRobotObject#>, wallInfo: <#T##(up: Bool, right: Bool, down: Bool, left: Bool, numberOfWalls: Int)#>)
+                        continueStraightOrRotate(myRobot, wallInfo: checkWalls(myRobot))
                         print("this is three way junction and robot is not blocked")
                     }
                 case isTwoWayPath:
